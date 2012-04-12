@@ -1,0 +1,12 @@
+= Nagios::Splunk
+Nagios splunk plugin allows to check splunk license usage
+
+== Usage:
+
+client = Nagios::Splunk::RestClient.new("http://admin:changeme@localhost:8089/")
+splunk = Nagios::Splunk::Check.new(client)
+
+warn = 80 # 80%
+crit = 90 # 90%
+
+splunk.license_usage(warn, crit) # => "License OK: 50% of license capacity is used | quota: 500 MB; used: 250 MB"
