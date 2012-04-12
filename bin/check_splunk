@@ -1,14 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'nagios/splunk'
-
-cli = Nagios::Splunk::CLI.new
-cli.parse_options
-
-client = Nagios::Splunk::RestClient.new(cli.config[:server_url])
-splunk = Nagios::Splunk::Check.new(client)
-
-status, message = splunk.license_usage(cli.config[:warn], cli.config[:crit])
-
-puts message
-exit status
+exit Nagios::Splunk::CLI.new.run
