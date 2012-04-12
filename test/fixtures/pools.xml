@@ -1,18 +1,43 @@
-<xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is to override browser formatting; see server.conf[httpServer] to disable. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<?xml-stylesheet type="text/xml" href="/static/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:s="http://dev.splunk.com/ns/rest" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>pools</title>
+  <id>https://localhost:8089/servicesNS/nobody/system/licenser/pools</id>
+  <updated>2012-04-11T21:14:12+00:00</updated>
+  <generator version="115073"/>
+  <author>
+    <name>Splunk</name>
+  </author>
+  <link href="/servicesNS/nobody/system/licenser/pools/_new" rel="create"/>
+  <link href="/servicesNS/nobody/system/licenser/pools/_reload" rel="_reload"/>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <s:messages/>
   <entry>
-    <title>AAA</title>
-    <content>
-      <dict>
-        <key name="used_bytes">10</key>
-      </dict>
+    <title>auto_generated_pool_enterprise</title>
+    <id>https://localhost:8089/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise</id>
+    <updated>2012-04-11T21:14:12+00:00</updated>
+    <link href="/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise" rel="alternate"/>
+    <author>
+      <name>nobody</name>
+    </author>
+    <link href="/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise" rel="list"/>
+    <link href="/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise/_reload" rel="_reload"/>
+    <link href="/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise" rel="edit"/>
+    <link href="/servicesNS/nobody/system/licenser/pools/auto_generated_pool_enterprise" rel="remove"/>
+    <content type="text/xml">
+      <s:dict>
+        <s:key name="description">auto_generated_pool_enterprise</s:key>
+        <s:key name="eai:acl"><s:dict><s:key name="app">system</s:key><s:key name="can_list">1</s:key><s:key name="can_write">1</s:key><s:key name="modifiable">0</s:key><s:key name="owner">nobody</s:key><s:key name="perms"><s:dict><s:key name="read"><s:list><s:item>admin</s:item></s:list></s:key><s:key name="write"><s:list><s:item>admin</s:item></s:list></s:key></s:dict></s:key><s:key name="removable">0</s:key><s:key name="sharing">system</s:key></s:dict></s:key>
+        <s:key name="eai:attributes"><s:dict><s:key name="optionalFields"><s:list><s:item>append_slaves</s:item><s:item>description</s:item><s:item>quota</s:item><s:item>slaves</s:item></s:list></s:key><s:key name="requiredFields"><s:list/></s:key><s:key name="wildcardFields"><s:list/></s:key></s:dict></s:key>
+        <s:key name="quota">MAX</s:key>
+        <s:key name="slaves"><s:list><s:item>*</s:item></s:list></s:key>
+        <s:key name="slaves_usage_bytes"><s:dict><s:key name="39C4C086-4F05-4349-9364-DA89E89DAAC2">30949055311</s:key></s:dict></s:key>
+        <s:key name="stack_id">enterprise</s:key>
+        <s:key name="used_bytes">30949055311</s:key>
+      </s:dict>
     </content>
   </entry>
-  <entry>
-    <title>BBB</title>
-    <content>
-      <dict>
-        <key name="used_bytes">20</key>
-      </dict>
-    </content>
-  </entry>
-</xml>
+</feed>

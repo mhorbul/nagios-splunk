@@ -10,13 +10,24 @@ describe Nagios::Splunk::Check do
     @licenses_xml = File.read(File.join(MiniTest.fixtures_path, "licenses.xml"))
     @pools_xml = File.read(File.join(MiniTest.fixtures_path, "pools.xml"))
     @licenses = {
-      "AAA" => {"quota" => "100", "status" => "VALID", "type" => "enterprise"},
+      "AAA" => {"quota" => "54760833024", "status" => "VALID", "type" => "enterprise"},
       "BBB" => {"quota" => "200", "status" => "EXPIRED", "type" => "enterprise"},
       "CCC" => {"quota" => "300", "status" => "VALID", "type" => "forwarder"}
     }
-    @pools = {
-      "AAA" => {"used_bytes" => "10"},
-      "BBB" => {"used_bytes" => "20"}
+    @pools ={
+      "auto_generated_pool_enterprise"=> {
+        "requiredFields"=>"", "owner"=>"nobody", "slaves"=>"*",
+        "optionalFields"=>"append_slavesdescriptionquotaslaves",
+        "can_list"=>"1", "39C4C086-4F05-4349-9364-DA89E89DAAC2"=>"30949055311",
+        "removable"=>"0", "quota"=>"MAX", "modifiable"=>"0",
+        "eai:acl"=>"system110nobodyadminadmin0system",
+        "description"=>"auto_generated_pool_enterprise",
+        "stack_id"=>"enterprise", "slaves_usage_bytes"=>"30949055311",
+        "eai:attributes"=>"append_slavesdescriptionquotaslaves",
+        "can_write"=>"1",
+        "sharing"=>"system", "write"=>"admin", "perms"=>"adminadmin",
+        "app"=>"system", "wildcardFields"=>"", "used_bytes"=>"30949055311", "read"=>"admin"
+      }
     }
   end
 
@@ -89,18 +100,18 @@ describe Nagios::Splunk::Check do
     end
 
     it "should return CRITICAL alert" do
-      message = "License CRITICAL: 30% of license capacity is used | quota: 100 B; used: 30 B"
-      @check.license_usage(10, 20).must_equal [2, message]
+      message = "License CRITICAL: 56% of license capacity is used | quota: 54760833024 B; used: 30949055311 B"
+      @check.license_usage(40, 50).must_equal [2, message]
     end
 
     it "should return WARN alert" do
-      message = "License WARN: 30% of license capacity is used | quota: 100 B; used: 30 B"
-      @check.license_usage(20, 40).must_equal [1, message]
+      message = "License WARN: 56% of license capacity is used | quota: 54760833024 B; used: 30949055311 B"
+      @check.license_usage(50, 60).must_equal [1, message]
     end
 
     it "should return OK" do
-      message = "License OK: 30% of license capacity is used | quota: 100 B; used: 30 B"
-      @check.license_usage(40, 50).must_equal [0, message]
+      message = "License OK: 56% of license capacity is used | quota: 54760833024 B; used: 30949055311 B"
+      @check.license_usage(60, 70).must_equal [0, message]
     end
   end
 
