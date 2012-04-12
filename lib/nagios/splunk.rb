@@ -8,9 +8,9 @@ module Nagios
     POOL_LIST_URL = "/services/licenser/pools"
     LICENSE_LIST_URL = "/services/licenser/licenses"
 
-    autoload :Check, "splunk/check"
-    autoload :RestClient, "splunk/rest_client"
-    autoload :CLI, "splunk/cli"
+    autoload :Check, "nagios/splunk/check"
+    autoload :RestClient, "nagios/splunk/rest_client"
+    autoload :CLI, "nagios/splunk/cli"
 
   end
 end

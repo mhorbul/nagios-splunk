@@ -1,8 +1,8 @@
-$:.push File.join(File.dirname(__FILE__), "../lib/nagios")
+$:.push File.join(File.dirname(__FILE__), "../lib")
 
 require 'rubygems'
 require "bundler/setup"
-require 'splunk'
+require 'nagios/splunk'
 require 'minitest/autorun'
 
 module MiniTest
