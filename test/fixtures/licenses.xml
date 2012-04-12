@@ -1,0 +1,52 @@
+<xml>
+  <entry>
+    <title>AAA</title>
+    <content>
+      <dict>
+        <key name="quota">100</key>
+        <key name="status">VALID</key>
+        <key name="type">enterprise</key>
+      </dict>
+    </content>
+  </entry>
+  <entry>
+    <title>FFF</title>
+    <content>
+      <dict>
+        <key name="quota">100</key>
+        <key name="status">VALID</key>
+        <key name="type">enterprise</key>
+      </dict>
+    </content>
+  </entry>
+  <entry>
+    <title>FFFD</title>
+    <content>
+      <dict>
+        <key name="quota">100</key>
+        <key name="status">VALID</key>
+        <key name="type">enterprise</key>
+      </dict>
+    </content>
+  </entry>
+  <entry>
+    <title>BBB</title>
+    <content>
+      <dict>
+        <key name="quota">200</key>
+        <key name="status">EXPIRED</key>
+        <key name="type">enterprise</key>
+      </dict>
+    </content>
+  </entry>
+  <entry>
+    <title>CCC</title>
+    <content>
+      <dict>
+        <key name="quota">300</key>
+        <key name="status">VALID</key>
+        <key name="type">forwarder</key>
+      </dict>
+    </content>
+  </entry>
+</xml>

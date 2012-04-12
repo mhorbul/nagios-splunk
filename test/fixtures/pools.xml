@@ -1,0 +1,18 @@
+<xml>
+  <entry>
+    <title>AAA</title>
+    <content>
+      <dict>
+        <key name="used_bytes">10</key>
+      </dict>
+    </content>
+  </entry>
+  <entry>
+    <title>BBB</title>
+    <content>
+      <dict>
+        <key name="used_bytes">20</key>
+      </dict>
+    </content>
+  </entry>
+</xml>
