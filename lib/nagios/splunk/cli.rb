@@ -7,8 +7,8 @@ module Nagios
       include Mixlib::CLI
 
       option(:server_url,
-             :short => "-s URL",
-             :long  => "--server URL",
+             :short => "-u URL",
+             :long  => "--server-url URL",
              :required => true,
              :description => "Splunk server url",
              :on => :head)
@@ -25,13 +25,33 @@ module Nagios
              :default => '90',
              :description => "Critical % of license capacity usage (default: 90)")
 
+      option(:pool,
+             :short => "-p POOL",
+             :long  => "--pool-name POOL",
+             :description => "Pool name wich usage is being checked.")
+
+      option(:stack_id,
+             :short => "-s STACK_ID",
+             :long  => "--stack-id STACK_ID",
+             :default => 'enterprise',
+             :description => "License Stack ID.")
+
       def run(argv = ARGV)
         parse_options(argv)
 
         client = RestClient.new(config[:server_url])
         splunk = Check.new(client)
 
-        status, message = splunk.license_usage(config[:warn], config[:crit])
+        begin
+          if config[:pool]
+            status, message = splunk.pool_usage(config[:pool], config[:warn], config[:crit])
+          else
+            status, message = splunk.license_usage(config[:warn], config[:crit], config[:stack_id])
+          end
+        rescue Nagios::Splunk::Exception => e
+          message = e.message
+          status = 3
+        end
 
         puts message
         status

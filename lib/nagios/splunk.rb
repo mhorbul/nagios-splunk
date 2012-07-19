@@ -11,6 +11,9 @@ module Nagios
     autoload :Check, "nagios/splunk/check"
     autoload :RestClient, "nagios/splunk/rest_client"
     autoload :CLI, "nagios/splunk/cli"
+    autoload :Exception, "nagios/splunk/exception"
+    autoload :NoPoolsFound, "nagios/splunk/exception"
+    autoload :NoLicensesFound, "nagios/splunk/exception"
 
   end
 end
