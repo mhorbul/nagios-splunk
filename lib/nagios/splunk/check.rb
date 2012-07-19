@@ -27,7 +27,7 @@ module Nagios
 
         code = check_threshold(used_quota, quota, warn, crit)
 
-        message = "License pool #{STATUS[code]}: #{used_quota * 100 / quota}% of license pool capacity is used"
+        message = "License pool '#{name}' #{STATUS[code]}: #{used_quota * 100 / quota}% of license pool capacity is used"
         message << " | quota: #{quota} B; used: #{used_quota} B"
         return [code, message]
       end

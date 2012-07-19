@@ -5,7 +5,7 @@
       <dict>
         <key name="quota">54760833024</key>
         <key name="status">VALID</key>
-        <key name="type">enterprise</key>
+        <key name="stack_id">enterprise</key>
       </dict>
     </content>
   </entry>
@@ -15,7 +15,7 @@
       <dict>
         <key name="quota">100</key>
         <key name="status">VALID</key>
-        <key name="type">enterprise</key>
+        <key name="stack_id">enterprise</key>
       </dict>
     </content>
   </entry>
@@ -25,7 +25,7 @@
       <dict>
         <key name="quota">100</key>
         <key name="status">VALID</key>
-        <key name="type">enterprise</key>
+        <key name="stack_id">enterprise</key>
       </dict>
     </content>
   </entry>
@@ -35,7 +35,7 @@
       <dict>
         <key name="quota">200</key>
         <key name="status">EXPIRED</key>
-        <key name="type">enterprise</key>
+        <key name="stack_id">enterprise</key>
       </dict>
     </content>
   </entry>
@@ -45,7 +45,7 @@
       <dict>
         <key name="quota">300</key>
         <key name="status">VALID</key>
-        <key name="type">forwarder</key>
+        <key name="stack_id">forwarder</key>
       </dict>
     </content>
   </entry>

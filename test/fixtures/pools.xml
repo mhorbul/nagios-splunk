@@ -40,4 +40,25 @@
       </s:dict>
     </content>
   </entry>
+  <entry>
+    <title>limited-pool</title>
+    <id>https://localhost:8089/servicesNS/nobody/system/licenser/pools/limited-pool</id>
+    <updated>2012-04-11T21:14:12+00:00</updated>
+    <link href="/servicesNS/nobody/system/licenser/pools/limited-pool" rel="alternate"/>
+    <author>
+      <name>nobody</name>
+    </author>
+    <content type="text/xml">
+      <s:dict>
+        <s:key name="description">limited-pool</s:key>
+        <s:key name="eai:acl"><s:dict><s:key name="app">system</s:key><s:key name="can_list">1</s:key><s:key name="can_write">1</s:key><s:key name="modifiable">0</s:key><s:key name="owner">nobody</s:key><s:key name="perms"><s:dict><s:key name="read"><s:list><s:item>admin</s:item></s:list></s:key><s:key name="write"><s:list><s:item>admin</s:item></s:list></s:key></s:dict></s:key><s:key name="removable">0</s:key><s:key name="sharing">system</s:key></s:dict></s:key>
+        <s:key name="eai:attributes"><s:dict><s:key name="optionalFields"><s:list><s:item>append_slaves</s:item><s:item>description</s:item><s:item>quota</s:item><s:item>slaves</s:item></s:list></s:key><s:key name="requiredFields"><s:list/></s:key><s:key name="wildcardFields"><s:list/></s:key></s:dict></s:key>
+        <s:key name="quota">61898110622</s:key>
+        <s:key name="slaves"><s:list><s:item>*</s:item></s:list></s:key>
+        <s:key name="slaves_usage_bytes"><s:dict><s:key name="39C4C086-4F05-4349-9364-DA89E89DAAC2">30949055311</s:key></s:dict></s:key>
+        <s:key name="stack_id">limited-stack</s:key>
+        <s:key name="used_bytes">30949055311</s:key>
+      </s:dict>
+    </content>
+  </entry>
 </feed>
