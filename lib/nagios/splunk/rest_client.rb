@@ -24,6 +24,7 @@ module Nagios
         @port = uri.port
         @username = uri.user
         @password = uri.password
+        @use_ssl = (uri.scheme == "https")
       end
 
       # send HTTP request to the server
@@ -48,7 +49,7 @@ module Nagios
       # @return [Net::HTTP]
       def client
         @client ||= Net::HTTP.new(@host, @port)
-        @client.use_ssl = true
+        @client.use_ssl = @use_ssl
         @client.set_debug_output $stderr if debug
         @client
       end
