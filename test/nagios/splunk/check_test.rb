@@ -42,13 +42,13 @@ describe Nagios::Splunk::Check do
   describe "when check pool usage with MAX quota" do
 
     before do
-      @response.expect(:code, "200")
-      @response.expect(:body, @licenses_xml)
-      @client.expect(:get, @response, [Nagios::Splunk::LICENSE_LIST_URL])
-
       @response1.expect(:code, "200")
       @response1.expect(:body, @pools_xml)
       @client.expect(:get, @response1, [Nagios::Splunk::POOL_LIST_URL])
+
+      @response.expect(:code, "200")
+      @response.expect(:body, @licenses_xml)
+      @client.expect(:get, @response, [Nagios::Splunk::LICENSE_LIST_URL])
     end
 
     it "should return CRITICAL alert" do
@@ -71,12 +71,8 @@ describe Nagios::Splunk::Check do
 
     before do
       @response.expect(:code, "200")
-      @response.expect(:body, @licenses_xml)
-      @client.expect(:get, @response, [Nagios::Splunk::LICENSE_LIST_URL])
-
-      @response1.expect(:code, "200")
-      @response1.expect(:body, @pools_xml)
-      @client.expect(:get, @response1, [Nagios::Splunk::POOL_LIST_URL])
+      @response.expect(:body, @pools_xml)
+      @client.expect(:get, @response, [Nagios::Splunk::POOL_LIST_URL])
     end
 
     it "should return CRITICAL alert" do

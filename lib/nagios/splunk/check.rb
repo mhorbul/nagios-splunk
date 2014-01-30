@@ -95,24 +95,32 @@ module Nagios
       # @param [String] stack_id
       # @return [Array<Hash>]
       def find_licenses(stack_id)
-        response = rest_client.get(LICENSE_LIST_URL)
-        result = response.code == "200" ? parse_data(response.body) : {}
-        # find all VALID licenses by stack_id
-        result.reject! {|k,v| v["stack_id"] != stack_id || v["status"] != "VALID" }
-        raise NoLicensesFound.new("No licenses are found in stack '#{stack_id}'") if result.empty?
-        result
+        @licenses ||= {}
+        @licenses[stack_id] ||=
+          begin
+            response = rest_client.get(LICENSE_LIST_URL)
+            result = response.code == "200" ? parse_data(response.body) : {}
+            # find all VALID licenses by stack_id
+            result.reject! {|k,v| v["stack_id"] != stack_id || v["status"] != "VALID" }
+            raise NoLicensesFound.new("No licenses are found in stack '#{stack_id}'") if result.empty?
+            result
+          end
       end
 
       # list of available pools
       # @param [String] stack_id
       # @return [Array<Hash>]
       def find_pools(stack_id = nil)
-        response = rest_client.get(POOL_LIST_URL)
-        result = response.code == "200" ? parse_data(response.body) : {}
-        # find all license pools by stack_id
-        result.reject! {|k,v| v["stack_id"] != stack_id } unless stack_id.nil?
-        raise NoPoolsFound.new("No pools are found in stack '#{stack_id}'") if result.empty?
-        result
+        @license_pools ||= {}
+        @license_pools[stack_id || :all] ||=
+          begin
+            response = rest_client.get(POOL_LIST_URL)
+            result = response.code == "200" ? parse_data(response.body) : {}
+            # find all license pools by stack_id
+            result.reject! {|k,v| v["stack_id"] != stack_id } unless stack_id.nil?
+            raise NoPoolsFound.new("No pools are found in stack '#{stack_id}'") if result.empty?
+            result
+          end
       end
 
       # Find pool by name
