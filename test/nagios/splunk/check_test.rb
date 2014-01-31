@@ -6,9 +6,45 @@ describe Nagios::Splunk::Check do
     @client = MiniTest::Mock.new
     @response = MiniTest::Mock.new
     @response1 = MiniTest::Mock.new
-    @check = Nagios::Splunk::Check.new(@client)
     @licenses_xml = File.read(File.join(MiniTest.fixtures_path, "licenses.xml"))
     @pools_xml = File.read(File.join(MiniTest.fixtures_path, "pools.xml"))
+    @localslave_xml = File.read(File.join(MiniTest.fixtures_path, "localslave.xml"))
+
+    @check = Nagios::Splunk::Check.new(@client)
+  end
+
+  describe "#localslave" do
+
+    before do
+      @response.expect(:code, "200")
+      @response.expect(:body, @localslave_xml)
+      @client.expect(:get, @response, [Nagios::Splunk::LICENSE_LOCALSLAVE_URL])
+    end
+
+    it "should return CRITICAL alert" do
+      time = 1391118534
+      Time.stub(:now, Time.at(time + 180)) do
+        message = "License slave slave01 CRITICAL | last_master_contact_attempt_time: #{time}; last_master_contact_success_time: #{time}"
+        @check.localslave(60, 90).must_equal [2, message]
+      end
+    end
+
+    it "should return WARNING alert" do
+      time = 1391118534
+      Time.stub(:now, Time.at(time + 70)) do
+        message = "License slave slave01 WARN | last_master_contact_attempt_time: #{time}; last_master_contact_success_time: #{time}"
+        @check.localslave(60, 90).must_equal [1, message]
+      end
+    end
+
+    it "should return OK" do
+      time = 1391118534
+      Time.stub(:now, Time.at(time + 30)) do
+        message = "License slave slave01 OK | last_master_contact_attempt_time: #{time}; last_master_contact_success_time: #{time}"
+        @check.localslave(60, 90).must_equal [0, message]
+      end
+    end
+
   end
 
   describe "when check license usage" do

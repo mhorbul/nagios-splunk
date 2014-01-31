@@ -15,6 +15,21 @@ module Nagios
         @rest_client = client
       end
 
+      def localslave(warn, crit)
+        response = rest_client.get(LICENSE_LOCALSLAVE_URL)
+        result = response.code == "200" ? parse_data(response.body) : {}
+        last_success_ago = Time.now - result['license']['last_master_contact_success_time'].to_i
+        code = case true
+               when last_success_ago.to_i > crit.to_i then 2
+               when last_success_ago.to_i > warn.to_i then 1
+               else 0
+               end
+        message = "License slave #{result['license']['slave_label']} #{STATUS[code]}"
+        message << " | last_master_contact_attempt_time: #{result['license']['last_master_contact_attempt_time']}; last_master_contact_success_time: #{result['license']['last_master_contact_success_time']}"
+        return [code, message]
+      end
+
+
       # pool usage check
       # @param [String] name of the pool
       # @param [Integer] warn license usage threshhold
@@ -58,9 +73,9 @@ module Nagios
       # @return [Integer] exit code
       def check_threshold(usage, quota, warn, crit)
         case true
-        when usage > quota * crit.to_i / 100:
+        when usage > quota * crit.to_i / 100
           return 2
-        when usage > quota * warn.to_i / 100:
+        when usage > quota * warn.to_i / 100
           return 1
         else
           return 0
@@ -125,7 +140,6 @@ module Nagios
 
       # Find pool by name
       # param [String] name of the pool
-      # param [String] stack_id which pool is assigned to
       # @return [Hash] pool
       def find_pool_by_name(name)
         pools = find_pools

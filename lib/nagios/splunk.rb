@@ -7,6 +7,7 @@ module Nagios
     LOGIN_URL = "/services/auth/login"
     POOL_LIST_URL = "/services/licenser/pools"
     LICENSE_LIST_URL = "/services/licenser/licenses"
+    LICENSE_LOCALSLAVE_URL = "/services/licenser/localslave"
 
     autoload :Check, "nagios/splunk/check"
     autoload :RestClient, "nagios/splunk/rest_client"
