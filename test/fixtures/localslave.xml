@@ -1,0 +1,101 @@
+<?xml-stylesheet type="text/xml" href="/static/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:s="http://dev.splunk.com/ns/rest"
+      xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>localslave</title>
+  <id>http://localhost:8089/services/licenser/localslave</id>
+  <updated>2014-01-30T21:48:56+00:00</updated>
+  <generator build="192438" version="5.0.7"/>
+  <author>
+    <name>Splunk</name>
+  </author>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <s:messages/>
+  <entry>
+    <title>license</title>
+    <id>http://localhost:8089/services/licenser/localslave/license</id>
+    <updated>2014-01-30T21:48:56+00:00</updated>
+    <link href="/services/licenser/localslave/license"
+          rel="alternate"/>
+    <author>
+      <name>system</name>
+    </author>
+    <link href="/services/licenser/localslave/license" rel="list"/>
+    <link href="/services/licenser/localslave/license" rel="edit"/>
+    <content type="text/xml">
+      <s:dict>
+        <s:key name="connection_timeout">30</s:key>
+        <s:key name="eai:acl">
+          <s:dict>
+            <s:key name="app"></s:key>
+            <s:key name="can_list">1</s:key>
+            <s:key name="can_write">1</s:key>
+            <s:key name="modifiable">0</s:key>
+            <s:key name="owner">system</s:key>
+            <s:key name="perms">
+              <s:dict>
+                <s:key name="read">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+                <s:key name="write">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+              </s:dict>
+            </s:key>
+            <s:key name="removable">0</s:key>
+            <s:key name="sharing">system</s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="features">
+          <s:dict>
+            <s:key name="Alerting">ENABLED</s:key>
+            <s:key
+                name="AllowDuplicateKeys">DISABLED_DUE_TO_LICENSE</s:key>
+            <s:key name="Auth">ENABLED</s:key>
+            <s:key name="DeployClient">ENABLED</s:key>
+            <s:key name="DeployServer">ENABLED</s:key>
+            <s:key name="DistSearch">ENABLED</s:key>
+            <s:key name="FwdData">ENABLED</s:key>
+            <s:key
+                name="LocalSearch">DISABLED_DUE_TO_VIOLATION</s:key>
+            <s:key name="RcvData">ENABLED</s:key>
+            <s:key name="RcvSearch">ENABLED</s:key>
+            <s:key
+                name="ResetWarnings">DISABLED_DUE_TO_LICENSE</s:key>
+            <s:key name="ScheduledSearch">ENABLED</s:key>
+            <s:key name="SigningProcessor">ENABLED</s:key>
+            <s:key name="SplunkWeb">ENABLED</s:key>
+            <s:key name="SyslogOutputProcessor">ENABLED</s:key>
+          </s:dict>
+        </s:key>
+        <s:key
+            name="last_master_contact_attempt_time">1391118534</s:key>
+        <s:key
+            name="last_master_contact_success_time">1391118534</s:key>
+        <s:key name="last_trackerdb_service_time">0</s:key>
+        <s:key name="license_keys">
+          <s:list>
+            <s:item>16C7CDDC690A93D72B7BC812BCAF74487EE2CBFDFD9E079D256586EAEF8A84EC</s:item>
+          </s:list>
+        </s:key>
+        <s:key
+            name="master_guid">EAB9E4B5-F568-46A5-BCAE-002C95812A0A</s:key>
+        <s:key name="master_uri">http://master01:8089</s:key>
+        <s:key name="receive_timeout">30</s:key>
+        <s:key name="send_timeout">30</s:key>
+        <s:key
+            name="slave_id">410ABCE2-296C-4E2B-AD4C-E5EA148CC389</s:key>
+        <s:key name="slave_label">slave01</s:key>
+        <s:key name="squash_threshold">1000</s:key>
+      </s:dict>
+    </content>
+  </entry>
+</feed>
