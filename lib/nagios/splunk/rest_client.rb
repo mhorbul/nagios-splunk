@@ -48,11 +48,14 @@ module Nagios
       # build HTTP connection
       # @return [Net::HTTP]
       def client
-        @client ||= Net::HTTP.new(@host, @port)
-        @client.use_ssl = @use_ssl
-        @client.verify_mode = OpenSSL::SSL::VERIFY_NONE if @client.use_ssl?
-        @client.set_debug_output $stderr if debug
-        @client
+        @client ||=
+          begin do
+            http = Net::HTTP.new(@host, @port)
+            http.use_ssl = @use_ssl
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl?
+            http.set_debug_output $stderr if debug
+            http
+          end
       end
 
       def debug
