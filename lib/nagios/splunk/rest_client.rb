@@ -50,6 +50,7 @@ module Nagios
       def client
         @client ||= Net::HTTP.new(@host, @port)
         @client.use_ssl = @use_ssl
+        @client.verify_mode = OpenSSL::SSL::VERIFY_NONE if @client.use_ssl?
         @client.set_debug_output $stderr if debug
         @client
       end
