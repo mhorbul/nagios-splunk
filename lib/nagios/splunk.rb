@@ -8,6 +8,7 @@ module Nagios
     POOL_LIST_URL = "/services/licenser/pools"
     LICENSE_LIST_URL = "/services/licenser/licenses"
     LICENSE_LOCALSLAVE_URL = "/services/licenser/localslave"
+    CLUSTER_MASTER_INFO_URL = "/services/licenser/localslave"
 
     autoload :Check, "nagios/splunk/check"
     autoload :RestClient, "nagios/splunk/rest_client"
@@ -15,6 +16,7 @@ module Nagios
     autoload :Exception, "nagios/splunk/exception"
     autoload :NoPoolsFound, "nagios/splunk/exception"
     autoload :NoLicensesFound, "nagios/splunk/exception"
+    autoload :Splunk, "nagios/splunk/splunk"
 
   end
 end

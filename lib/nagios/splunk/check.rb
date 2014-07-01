@@ -63,6 +63,28 @@ module Nagios
         return [code, message]
       end
 
+      def cluster_bundle_status
+        splunk = Splunk.new(rest_client)
+        info = splunk.cluster_master_info
+        errors = info.xpath("//s:key[@name='bundle_validation_errors_on_master']//s:item").map { |n| n.text.chomp }
+        code = (errors.empty? ? 0 : 1)
+        return [code, "Splunk cluster bundle status is #{STATUS[code]} | #{errors.join("\n")}"]
+      end
+
+      def cluster_replication_factor
+        splunk = Splunk.new(rest_client)
+        info = splunk.cluster_master_generation
+        code = info.xpath("//s:key[@name='replication_factor_met']").text.to_i
+        return [code == 1 ? 0 : 1, "Splunk cluster replication factor is #{code == 1 ? "met" : "not met"}"]
+      end
+
+      def cluster_search_factor
+        splunk = Splunk.new(rest_client)
+        info = splunk.cluster_master_generation
+        code = info.xpath("//s:key[@name='search_factor_met']").text.to_i
+        return [code == 1 ? 0 : 1, "Splunk cluster search factor is #{code == 1 ? "met" : "not met"}"]
+      end
+
       private
 
       # Compare usage and quota with threshold

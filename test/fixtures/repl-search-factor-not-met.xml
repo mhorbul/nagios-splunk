@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is to override browser formatting; see server.conf[httpServer] to disable. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<?xml-stylesheet type="text/xml" href="/static/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:s="http://dev.splunk.com/ns/rest" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>clustermastergeneration</title>
+  <id>https://192.168.33.3:8089/services/cluster/master/generation</id>
+  <updated>2014-06-30T22:34:03+00:00</updated>
+  <generator build="207789" version="6.1.1"/>
+  <author>
+    <name>Splunk</name>
+  </author>
+  <link href="/services/cluster/master/generation/_new" rel="create"/>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <s:messages/>
+  <entry>
+    <title>master</title>
+    <id>https://192.168.33.3:8089/services/cluster/master/generation/master</id>
+    <updated>2014-06-30T22:34:03+00:00</updated>
+    <link href="/services/cluster/master/generation/master" rel="alternate"/>
+    <author>
+      <name>system</name>
+    </author>
+    <link href="/services/cluster/master/generation/master" rel="list"/>
+    <link href="/services/cluster/master/generation/master" rel="edit"/>
+    <content type="text/xml">
+      <s:dict>
+        <s:key name="eai:acl">
+          <s:dict>
+            <s:key name="app"></s:key>
+            <s:key name="can_list">1</s:key>
+            <s:key name="can_write">1</s:key>
+            <s:key name="modifiable">0</s:key>
+            <s:key name="owner">system</s:key>
+            <s:key name="perms">
+              <s:dict>
+                <s:key name="read">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+                <s:key name="write">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+              </s:dict>
+            </s:key>
+            <s:key name="removable">0</s:key>
+            <s:key name="sharing">system</s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="generation_id">1</s:key>
+        <s:key name="generation_peers">
+          <s:dict>
+            <s:key name="071D60CA-0298-4EC5-9EB9-DA95DDEFAFCA">
+              <s:dict>
+                <s:key name="host_port_pair">192.168.33.4:8089</s:key>
+                <s:key name="peer">chef-client2.local.livingsocial.net</s:key>
+              </s:dict>
+            </s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="last_complete_generation_id">0</s:key>
+        <s:key name="multisite_error">0</s:key>
+        <s:key name="pending_generation_id">2</s:key>
+        <s:key name="pending_last_attempt">1404143383</s:key>
+        <s:key name="pending_last_reason">site=default has only 1 peers (waiting for 2 peers in that site)</s:key>
+        <s:key name="replication_factor_met">0</s:key>
+        <s:key name="search_factor_met">0</s:key>
+        <s:key name="was_forced">1</s:key>
+      </s:dict>
+    </content>
+  </entry>
+</feed>

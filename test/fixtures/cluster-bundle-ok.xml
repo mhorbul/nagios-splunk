@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is to override browser formatting; see server.conf[httpServer] to disable. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<?xml-stylesheet type="text/xml" href="/static/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:s="http://dev.splunk.com/ns/rest" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">
+  <title>clustermasterinfo</title>
+  <id>https://192.168.33.3:8089/services/cluster/master/info</id>
+  <updated>2014-06-30T22:32:57+00:00</updated>
+  <generator build="207789" version="6.1.1"/>
+  <author>
+    <name>Splunk</name>
+  </author>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:itemsPerPage>30</opensearch:itemsPerPage>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <s:messages/>
+  <entry>
+    <title>master</title>
+    <id>https://192.168.33.3:8089/services/cluster/master/info/master</id>
+    <updated>2014-06-30T22:32:57+00:00</updated>
+    <link href="/services/cluster/master/info/master" rel="alternate"/>
+    <author>
+      <name>system</name>
+    </author>
+    <link href="/services/cluster/master/info/master" rel="list"/>
+    <content type="text/xml">
+      <s:dict>
+        <s:key name="active_bundle">
+          <s:dict>
+            <s:key name="bundle_path">/opt/splunk/var/run/splunk/cluster/remote-bundle/bb98779bd4bb52b9db512b9a023d4dd7-1404137104.bundle</s:key>
+            <s:key name="checksum">D47D2907460E4175685262CB478DCD74</s:key>
+            <s:key name="timestamp">1404137104</s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="apply_bundle_status">
+          <s:dict>
+            <s:key name="invalid_bundle">
+              <s:dict>
+                <s:key name="bundle_path"></s:key>
+                <s:key name="bundle_validation_errors_on_master">
+                  <s:list/>
+                </s:key>
+                <s:key name="checksum"></s:key>
+                <s:key name="timestamp">0</s:key>
+              </s:dict>
+            </s:key>
+            <s:key name="reload_bundle_issued">0</s:key>
+            <s:key name="status"></s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="eai:acl">
+          <s:dict>
+            <s:key name="app"></s:key>
+            <s:key name="can_list">1</s:key>
+            <s:key name="can_write">1</s:key>
+            <s:key name="modifiable">0</s:key>
+            <s:key name="owner">system</s:key>
+            <s:key name="perms">
+              <s:dict>
+                <s:key name="read">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+                <s:key name="write">
+                  <s:list>
+                    <s:item>admin</s:item>
+                    <s:item>splunk-system-role</s:item>
+                  </s:list>
+                </s:key>
+              </s:dict>
+            </s:key>
+            <s:key name="removable">0</s:key>
+            <s:key name="sharing">system</s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="indexing_ready_flag">0</s:key>
+        <s:key name="initialized_flag">0</s:key>
+        <s:key name="label">chef-client1.local.livingsocial.net</s:key>
+        <s:key name="latest_bundle">
+          <s:dict>
+            <s:key name="bundle_path">/opt/splunk/var/run/splunk/cluster/remote-bundle/bb98779bd4bb52b9db512b9a023d4dd7-1404137104.bundle</s:key>
+            <s:key name="checksum">D47D2907460E4175685262CB478DCD74</s:key>
+            <s:key name="timestamp">1404137104</s:key>
+          </s:dict>
+        </s:key>
+        <s:key name="maintenance_mode">0</s:key>
+        <s:key name="multisite">0</s:key>
+        <s:key name="rolling_restart_flag">0</s:key>
+        <s:key name="service_ready_flag">0</s:key>
+        <s:key name="start_time">1404139762</s:key>
+      </s:dict>
+    </content>
+  </entry>
+</feed>
