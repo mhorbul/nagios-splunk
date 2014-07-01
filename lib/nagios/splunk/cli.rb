@@ -41,14 +41,34 @@ module Nagios
              :default => 'enterprise',
              :description => "License Stack ID.")
 
+      option(:replication_factor,
+              :long => "--repl-factor",
+              :description => "Check if replication factor is met.")
+
+      option(:search_factor,
+              :long => "--search-factor",
+              :description => "Check if search factor is met.")
+
+      option(:cluster_bundle_status,
+              :long => "--cluster-bundle-status",
+              :description => "Check cluster bundle status.")
+
       def run(argv = ARGV)
         parse_options(argv)
 
         client = RestClient.new(config[:server_url])
         splunk = Check.new(client)
 
+        p config
+
         begin
-          if config[:localslave]
+          if config[:replication_factor]
+            status, message = splunk.cluster_replication_factor
+          elsif config[:search_factor]
+            status, message = splunk.cluster_search_factor
+          elsif config[:cluster_bundle_status]
+            status, message = splunk.cluster_bundle_status
+          elsif config[:localslave]
             status, message = splunk.localslave(config[:warn], config[:crit])
           elsif config[:pool]
             status, message = splunk.pool_usage(config[:pool], config[:warn], config[:crit])
