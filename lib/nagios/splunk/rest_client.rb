@@ -49,7 +49,7 @@ module Nagios
       # @return [Net::HTTP]
       def client
         @client ||=
-          begin do
+          begin
             http = Net::HTTP.new(@host, @port)
             http.use_ssl = @use_ssl
             http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl?
