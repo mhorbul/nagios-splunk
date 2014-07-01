@@ -59,8 +59,6 @@ module Nagios
         client = RestClient.new(config[:server_url])
         splunk = Check.new(client)
 
-        p config
-
         begin
           if config[:replication_factor]
             status, message = splunk.cluster_replication_factor
