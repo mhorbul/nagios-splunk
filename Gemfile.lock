@@ -1,9 +1,13 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    mini_portile2 (2.8.0)
     minitest (5.2.2)
     mixlib-cli (1.2.2)
-    nokogiri (1.5.2)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    racc (1.6.0)
 
 PLATFORMS
   ruby
